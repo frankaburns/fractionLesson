@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentConfigure">
+
+    <fragment
+        android:id="@+id/fragmentConfigure"
+        android:name="com.fabo.fractionlesson.view.FragmentConfigure"
+        android:label="fragment_configure"
+        tools:layout="@layout/fragment_configure" >
+        <action
+            android:id="@+id/action_fragmentConfigure_to_fragmentFractionLesson"
+            app:destination="@id/fragmentfractionlesson" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentfractionlesson"
+        android:name="com.fabo.fractionlesson.view.FragmentFractionLesson"
+        android:label="fragment_fraction_lesson"
+        tools:layout="@layout/fragment_fraction_lesson" >
+        <action
+            android:id="@+id/action_fragmentFractionLesson_to_fragmentResult"
+            app:destination="@id/fragmentResult" />
+        <argument
+            android:name="function"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="level"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="random"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="range"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="start"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="end"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="numProblems"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentResult"
+        android:name="com.fabo.fractionlesson.view.FragmentResult"
+        android:label="fragment_result"
+        tools:layout="@layout/fragment_result" >
+        <argument
+            android:name="correct"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="wrong"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="total"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+</navigation>
