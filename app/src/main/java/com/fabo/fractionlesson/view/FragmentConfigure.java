@@ -35,6 +35,7 @@ public class FragmentConfigure extends Fragment {
     int numProblems = 10;
     boolean rangeClicked = false;
     boolean randomClicked = false;
+    boolean randomOvereide = false;
     Button range_button;
     Button random_button;
     Button[] function_buttons;
@@ -107,33 +108,39 @@ public class FragmentConfigure extends Fragment {
             level_buttons[level].setBackgroundTintList(ColorStateList.valueOf(Color.parseColor(color_switch_off)));
             level = 0;
             level_buttons[level].setBackgroundTintList(ColorStateList.valueOf(Color.parseColor(color_switch_on)));
+            randomOvereide = false;
         });
 
         fragmentConfigureBinding.digitButton1.setOnClickListener(v -> {
             level_buttons[level].setBackgroundTintList(ColorStateList.valueOf(Color.parseColor(color_switch_off)));
             level = 1;
             level_buttons[level].setBackgroundTintList(ColorStateList.valueOf(Color.parseColor(color_switch_on)));
+            randomOvereide = false;
         });
 
         fragmentConfigureBinding.digitButton2.setOnClickListener(v -> {
             level_buttons[level].setBackgroundTintList(ColorStateList.valueOf(Color.parseColor(color_switch_off)));
             level = 2;
             level_buttons[level].setBackgroundTintList(ColorStateList.valueOf(Color.parseColor(color_switch_on)));
+            random = 0;
+            random_button.setText(R.string.Random);
+            random_button.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor(color_switch_on)));
+            randomOvereide = true;
         });
 
         fragmentConfigureBinding.randomButton.setOnClickListener(v -> {
-            if (randomClicked) {
-                random = 0;
-                random_button.setText(R.string.Ordered);
-                random_button.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor(color_switch_on)));
-                randomClicked = false;
-            } else {
-                random = 1;
-                random_button.setText(R.string.Random);
-                random_button.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor(color_switch_on)));
-                randomClicked = true;
-
-
+            if (!randomOvereide) {
+                if (randomClicked) {
+                    random = 0;
+                    random_button.setText(R.string.Ordered);
+                    random_button.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor(color_switch_on)));
+                    randomClicked = false;
+                } else {
+                    random = 1;
+                    random_button.setText(R.string.Random);
+                    random_button.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor(color_switch_on)));
+                    randomClicked = true;
+                }
             }
         });
 

@@ -49,8 +49,8 @@
     <string name="Nine">9</string>
     <string name="Slash">/</string>
 
-    <string name="LCM">LCM</string>
-    <string name="GCD">GCD</string>
+    <string name="LCD">LCD</string>
+    <string name="GCM">GCM</string>
 
     <string name="Delete">Del</string>
     <string name="Enter">Enter</string>

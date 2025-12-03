@@ -75,39 +75,62 @@ public class Fraction {
         return (numerator + "/" + denominator);
     }
 
+
     /**
+     * Is the input Fraction less than this Fraction. Find the Least Common Denominator(LCD).
+     * Multiply each numerator by the LCD. return true if the normalized numerator of the
+     * input fraction is less than the normalized numerator of this Fraction.
+     *
+     * @param frac - a Fraction object to compare with this Fraction object
+     * @return - if the input fraction is less that this Fraction.
+     */
+    public boolean lessThan(Fraction frac) { return frac.getRealNumber() > this.getRealNumber(); }
+    /**
+     * Is the input Fraction greater than this Fraction. Find the Least Common Denominator(LCD).
+     * Multiply each numerator by the LCD. return true if the normalized numerator of the
+     * input fraction is greater than the normalized numerator of this Fraction.
+     *
+     * @param frac - a Fraction object to compare with this Fraction object
+     * @return - if the input fraction is greater that this Fraction.
+     */
+
+    public boolean greaterThan(Fraction frac) { return frac.getRealNumber() > this.getRealNumber();}
+
+    /**
+     * This method overrides the Object equals virtual function by the following steps:
+     *    1. Self-comparison check
+     *    2. Null check and type check
+     *    3. Cast the object to the correct type
+     *    4. Compare relevant fields
+     *
      * @param o - Fraction Object
      * @return boolean true equal, false NOT equal
      */
 
     @Override
     public boolean equals(Object o) {
-        // 1. Self-comparison check
         if (this == o) {
             return true;
         }
 
-        // 2. Null check and type check
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
 
-        // 3. Cast the object to the correct type
         Fraction other = (Fraction) o;
 
-        // 4. Compare relevant fields
-        // For primitive types, use ==
-        // For object types, use their equals() method or Objects.equals() for null-safe comparison
-        return ((numerator == other.numerator) && (denominator == other.denominator));
-        // Alternatively, using Objects.equals() for cleaner comparison of object fields:
-        // return id == other.id && Objects.equals(name, other.name);
-    }
+        return (realNumber == other.realNumber);
+     }
 
-    // It's crucial to also override hashCode() when overriding equals()
+    /**
+     * It's crucial to also override hashCode() when overriding equals()
+     * Generate a hash code based on the same fields used in equals()
+     * Alternatively, using Objects.hash() for convenience:
+     *
+     * @return an int of the generated hash code.
+     */
     @Override
     public int hashCode() {
-        // Generate a hash code based on the same fields used in equals()
-        // Alternatively, using Objects.hash() for convenience:
         return Objects.hash(numerator, denominator);
     }
 }
