@@ -145,12 +145,10 @@ architecture-beta
     service run(server)[Lesson Processor] in api
     service res(server)[Results Processor] in api
     
-    droid:B <--> T:sm
-    sm:B <--> T:config
-    config:B --> T:run
-    run:L <--> R:build
+    config:L --> R:run
+    run:R <--> L:build
     run:B --> T:res
-    res:R --> B:droid
+    res:B --> T:droid
     res:L --> B:config
     
 ```
