@@ -1,13 +1,13 @@
-# math-lesson
+# fraction-lesson
 
-Math Lesson is an app to aid your child in attaining competence in basic math. Math Lesson allow the parent/whomever to manage the configuration of the target Lessons, based upon the level of understanding. It concentrates on basic addition, subtraction, multiplication and division. For more detailed configuration definition see <documentation> below.  This app is intended for children learning simple math i.e. first through fourth or fifth grades.
+Fraction Lesson is an app to aid your child in attaining competence in basic fractional math. Fraction Lesson allows the parent/whomever to manage the configuration of the target Lessons, based upon the level of understanding. It concentrates on basic addition, subtraction, multiplication and division. For more detailed configuration definition see <documentation> below.  This app is intended for children learning simple Fraction i.e. first through fourth or fifth grades.
 
 ## Table of Contents
-- [math-lesson](#math-lesson)
+- [fraction-lesson](#fraction-lesson)
   * [Table of Contents](#table-of-contents)
   * [Development](#development)
-    + [Building Math Lesson](#building-math-lesson)
-    + [Testing](#testing-math-lesson)
+    + [Building Fraction Lesson](#building-fraction-lesson)
+    + [Testing](#testing-fraction-lesson)
   * [Documentation](#documentation)
     + [Open Source References](#open-source-references)
     + [Architecture](#architecture)
@@ -15,9 +15,9 @@ Math Lesson is an app to aid your child in attaining competence in basic math. M
 
 ## Development
 
-The Math Lesson was developed in a Linux environment using the Java Language and the Android Studio <version> build environment. The code is located in GitHub at: https://github.com/frankaburns/fractionlesson
+The Fraction Lesson was developed in a Linux environment using the Java Language and the Android Studio <version> build environment. The code is located in GitHub at: https://github.com/frankaburns/fractionlesson
 
-### Building Math Lesson
+### Building Fraction Lesson
 
 Download Android Studio and open the fractionlesson project.  Click the build button.
 
@@ -29,16 +29,17 @@ gradle clean
 gradle build
 ```
 
-Should your build return this error:
+Should your build return an error complaining about concatenating the AndroidManifest.xml, I have found the error is a reflection of a conflict between the gradle version installed on your local machine and the requested requested gradle in the project which is Gradle 8.13.
+![images/gradle-version.png](images/gradle-version.png)
 
 
-### Testing Math Lesson
+### Testing Fraction Lesson
 
-Math Lesson has Unit tests that validate the domain functionality.  Integration testing is done following the test plan located <>
+Fraction Lesson has Unit tests that validate the domain functionality.  Integration testing is done following the test plan located <>
 
 ## Documentation
 
-Math Lesson documentation is maintained in this document and can be generated from Android Studio using the generate javadoc tool.
+Fraction Lesson documentation is maintained in this document and can be generated from Android Studio using the generate javadoc tool.
 The javadoc files are [here](app/doc/javadoc)
 
 The Project Structure requires updated to include the local copy of 'android.jar'. To accomplish this, first locate your locate copy of android.jar, usually /home/,user./Android/Sdk/platforms/,version./android.jar.
@@ -125,7 +126,7 @@ The execution screen iterates through the configured problem set and tests the s
 3. Incorrect Number of Answers
 4. Average time spent during the lesson
 
-Below Find the High Level Design (HLD) of the Math Lesson, depicting the interactions of the various components.
+Below Find the High Level Design (HLD) of the Fraction Lesson, depicting the interactions of the various components.
 
 
 ```mermaid
@@ -135,10 +136,10 @@ title: Lesson Architecture
 ---
 
 architecture-beta
-    group api(cloud)[Math Lesson API]
+    group api(cloud)[Fraction Lesson API]
 
     service droid(server)[Android] in api
-    service sm(server)[Math Lesson] in api
+    service sm(server)[Fraction Lesson] in api
     service config(server)[Configuration Services] in api
     service build(server)[Generate Problems] in api
     service run(server)[Lesson Processor] in api
