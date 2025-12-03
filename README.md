@@ -139,13 +139,12 @@ architecture-beta
     group api(cloud)[Fraction Lesson API]
 
     service droid(server)[Android] in api
-    service sm(server)[Fraction Lesson] in api
     service config(server)[Configuration Services] in api
     service build(server)[Generate Problems] in api
     service run(server)[Lesson Processor] in api
     service res(server)[Results Processor] in api
     
-    config:L --> R:run
+    config:R --> L:run
     run:R <--> L:build
     run:B --> T:res
     res:B --> T:droid
