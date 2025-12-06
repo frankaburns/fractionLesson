@@ -238,12 +238,12 @@ class FractionProblemGenerator {
                     oper1 = min + (int)(Math.random() * ((max - min) + 1));
                     oper2 = min + (int)(Math.random() * ((max - min) + 1));
 
-                    Fraction frac1 = new Fraction(oper1, oper2);
+                    Fraction frac1 = FractionReducer.reduceFraction(oper1, oper2);
 
                     oper3 = min + (int)(Math.random() * ((max - min) + 1));
                     oper4 = min + (int)(Math.random() * ((max - min) + 1));
 
-                    Fraction frac2 = new Fraction(oper3, oper4);
+                    Fraction frac2 = FractionReducer.reduceFraction(oper3, oper4);
 
                     problemSet.add(new BasicFractionalMath(lessonFunction, frac1, frac2));
                 }
@@ -252,12 +252,12 @@ class FractionProblemGenerator {
                     oper1 = min + (int)(Math.random() * ((max - min) + 1));
                     oper2 = min + (int)(Math.random() * ((max - min) + 1));
 
-                    Fraction frac1 = new Fraction(oper1, oper2);
+                    Fraction frac1 = FractionReducer.reduceFraction(oper1, oper2);
 
                     oper3 = min + (int)(Math.random() * ((max - min) + 1));
                     oper4 = min + (int)(Math.random() * ((max - min) + 1));
 
-                    Fraction frac2 = new Fraction(oper3, oper4);
+                    Fraction frac2 = FractionReducer.reduceFraction(oper3, oper4);
 
                     if (frac1.greaterThan(frac2)) {
                         problemSet.add(new BasicFractionalMath(lessonFunction, frac1, frac2));
@@ -272,9 +272,9 @@ class FractionProblemGenerator {
                 lessonFunction == BasicFractionalMath.MUL) {
                 for (int i = startRow, iPlusOne = (startRow == 0) ? 1 : startRow; i < endRow; i++, iPlusOne++) {
                     for (int j = startCol, jPlusOne = 2; jPlusOne < endCol; j++, jPlusOne++) {
-                        Fraction frac1 = new Fraction(iPlusOne, jPlusOne);
+                        Fraction frac1 = FractionReducer.reduceFraction(iPlusOne, jPlusOne);
                         for (int k = startCol, kPlusOne = 2; kPlusOne < endCol; k++, kPlusOne++) {
-                            Fraction frac2 = new Fraction(iPlusOne, kPlusOne);
+                            Fraction frac2 = FractionReducer.reduceFraction(iPlusOne, kPlusOne);
                             problemSet.add(new BasicFractionalMath(lessonFunction, frac1, frac2));
                         }
                     }
@@ -282,9 +282,9 @@ class FractionProblemGenerator {
             } else if (lessonFunction == BasicFractionalMath.SUB) {
                 for (int i = startRow, iPlusOne = (startRow == 0) ? 1 : startRow; i < endRow; i++, iPlusOne++) {
                     for (int j = startCol, jPlusOne = 2; jPlusOne < endCol; j++, jPlusOne++) {
-                        Fraction frac1 = new Fraction(iPlusOne, jPlusOne);
+                        Fraction frac1 = FractionReducer.reduceFraction(iPlusOne, jPlusOne);
                         for (int k = startCol, kPlusOne = 2; kPlusOne < endCol; k++, kPlusOne++) {
-                            Fraction frac2 = new Fraction(iPlusOne, kPlusOne);
+                            Fraction frac2 = FractionReducer.reduceFraction(iPlusOne, kPlusOne);
                             if (frac1.greaterThan(frac2)) {
                                 problemSet.add(new BasicFractionalMath(lessonFunction, frac1, frac2));
                             } else {
