@@ -227,35 +227,39 @@ class FractionProblemGenerator {
             int min = 1;
             int max = 1000;
 
-            int oper1 = 0;
-            int oper2 = 0;
-            int oper3 = 0;
-            int oper4 = 0;
+            int oper1     = 0;
+            int oper2     = 0;
+            int oper3     = 0;
+            int oper4     = 0;
+
+            int increment = max/numProblems;
+            int incMax    = increment;
 
             if (lessonFunction == BasicFractionalMath.ADD || lessonFunction == BasicFractionalMath.DIV ||
                 lessonFunction == BasicFractionalMath.MUL) {
                 for (int i = 1; i<numProblems; i++) {
-                    oper1 = min + (int)(Math.random() * ((max - min) + 1));
-                    oper2 = min + (int)(Math.random() * ((max - min) + 1));
+                    oper1 = min + (int)(Math.random() * ((incMax - min) + 1));
+                    oper2 = min + (int)(Math.random() * ((incMax - min) + 1));
 
                     Fraction frac1 = FractionReducer.reduceFraction(oper1, oper2);
 
-                    oper3 = min + (int)(Math.random() * ((max - min) + 1));
-                    oper4 = min + (int)(Math.random() * ((max - min) + 1));
+                    oper3 = min + (int)(Math.random() * ((incMax - min) + 1));
+                    oper4 = min + (int)(Math.random() * ((incMax - min) + 1));
 
                     Fraction frac2 = FractionReducer.reduceFraction(oper3, oper4);
 
                     problemSet.add(new BasicFractionalMath(lessonFunction, frac1, frac2));
+                    incMax += increment;
                 }
             } else if (lessonFunction == BasicFractionalMath.SUB) {
                 for (int i = 1; i<numProblems; i++) {
-                    oper1 = min + (int)(Math.random() * ((max - min) + 1));
-                    oper2 = min + (int)(Math.random() * ((max - min) + 1));
+                    oper1 = min + (int)(Math.random() * ((incMax - min) + 1));
+                    oper2 = min + (int)(Math.random() * ((incMax - min) + 1));
 
                     Fraction frac1 = FractionReducer.reduceFraction(oper1, oper2);
 
-                    oper3 = min + (int)(Math.random() * ((max - min) + 1));
-                    oper4 = min + (int)(Math.random() * ((max - min) + 1));
+                    oper3 = min + (int)(Math.random() * ((incMax - min) + 1));
+                    oper4 = min + (int)(Math.random() * ((incMax - min) + 1));
 
                     Fraction frac2 = FractionReducer.reduceFraction(oper3, oper4);
 
@@ -264,6 +268,7 @@ class FractionProblemGenerator {
                     } else {
                         problemSet.add(new BasicFractionalMath(lessonFunction, frac2, frac1));
                     }
+                    incMax += increment;
                 }
              }
 
